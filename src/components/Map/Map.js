@@ -1,13 +1,13 @@
 import React from "react";
 import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
-import styles from "./Map.css";
+import styles from "../../App.css";
 
 
 const reduceSize = trials => {
     let visited = [];
     for (let trial of trials) {
-        // console.log(trial)
+       
         if (trial.locations && trial.locations[0]) {
             if (visited.length === 0) {
                 if (trial.locations[0].country) {
@@ -204,5 +204,5 @@ function MapContainer(props) {
 // https://developers.google.com/maps/gmp-get-started#enable-api-sdk
 
 export default GoogleApiWrapper({
-    apiKey: (YOUR_GOOGLE_API_KEY_GOES_HERE)
+    apiKey: process.env.GOOGLE_API_KEY
   })(MapContainer)
